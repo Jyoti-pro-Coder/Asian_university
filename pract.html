@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+<style>:root {
+	--primary: #bcbcbc;
+	--secondary: #2b2b2b;
+	--line-height: 2em;
+	--font-size: calc(1rem + 5vw);
+	--animation-time: 3s;
+  }
+  body {
+	margin: 0;
+	background-color: var(--primary);
+	font-family: monospace;
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+  }
+  .fg-container {
+	color: white;
+	z-index: 1;
+	font-size: var(--font-size);
+	background-color: var(--secondary);
+	width: 10em;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	height: var(--line-height);
+	display: flex;
+	justify-content: center;
+	animation: fg_container var(--animation-time) linear forwards;
+  }
+  .fg-text,
+  .bg-text {
+	font-weight: 600;
+	transform: translatex(110%);
+	font-size: var(--font-size);
+	margin: 0;
+	line-height: var(--line-height);
+	white-space:nowrap;
+	text-align: center;
+	position: absolute;
+  }
+  .fg-text {
+	animation: fg_text calc(var(--animation-time) / 2) linear calc(var(--animation-time) / 2) forwards;
+	transform: translatex(110%);
+  }
+  .bg-text {
+	animation: bg_text var(--animation-time) linear forwards;
+	z-index: 0;
+  }
+  @keyframes fg_text {
+	from {
+	  transform: translatex(110%);
+	}
+	to {
+	  transform: translatex(0%);
+	}
+  }
+  @keyframes bg_text {
+	from {
+	  transform: translatex(105%);
+	}
+	to {
+	  transform: translatex(0%);
+	}
+  }
+  @keyframes fg_container {
+	from {
+	  transform: translatex(-95%);
+	}
+	to {
+	  transform: translatex(0%);
+	}
+  }</style>	
+</head>
+<body>
+	<div class="fg-container">
+		<p class="fg-text">
+		  Can you see me?
+		</p>
+	  </div>
+	  <p class="bg-text">
+		Can you see me?
+	  </p>
+</body>
+</html>
